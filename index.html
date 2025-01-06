@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Secure Enterprise Application</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <header>
+    <h1>Secure Enterprise Application</h1>
+  </header>
+  <main>
+    <!-- User Authentication -->
+    <section>
+      <h2>Welcome!</h2>
+      <p>Already have an account? <a href="/login">Login here</a></p>
+      <button class="btn" id="register-button">Register</button>
+    </section>
+
+    <!-- Data Entry -->
+    <section>
+      <h2>Transaction Entry</h2>
+      <form id="transaction-form">
+        <div>
+          <label for="amount">Amount</label>
+          <input type="number" id="amount" name="amount" step="0.01" required>
+        </div>
+        <button class="btn" type="submit">Submit Transaction</button>
+      </form>
+    </section>
+
+    <!-- Reporting -->
+    <section>
+      <h2>Transaction Report</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>User</th>
+            <th>Amount</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody id="transaction-table-body">
+          <!-- Dynamic rows will be added here -->
+        </tbody>
+      </table>
+    </section>
+  </main>
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  <script>
+    document.getElementById('register-button').addEventListener('click', function() {
+      window.location.href = '/register'; // Redirect to the registration page
+    });
+  </script>
+</body>
+</html>
